@@ -37,6 +37,7 @@ export const ChakraNextImage = ({
 				src={src}
 				alt={alt}
 				style={{ borderRadius: 8 }}
+				priority={true}
 			/>
 		</Box>
 	);
@@ -64,6 +65,8 @@ const Project: React.FC<{ project: ProjectType }> = ({ project }) => {
 		</NextLink>
 	);
 };
+
+//TODO: ADD color variable for theme change
 
 const Home: NextPage = () => {
 	return (
@@ -141,13 +144,7 @@ const Home: NextPage = () => {
 				<Heading as={'h3'} fontSize={['2xl', '4xl']} fontWeight="bold">
 					Featured Posts
 				</Heading>
-				<SimpleGrid
-					columns={[1, 1, 3]}
-					spacing={6}
-					mt={6}
-					py={2}
-					px={1}
-				>
+				<SimpleGrid columns={[1, 1, 3]} spacing={6} mt={6}>
 					<GridItem>
 						<FeaturedPost
 							gradient="linear-gradient(135deg, #f02fc2 0%,#6094ea 100%)"

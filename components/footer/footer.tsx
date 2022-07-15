@@ -47,10 +47,10 @@ const FooterLink: React.FC<FooterLinkProps> = ({ href, children }) => {
 
 export const Footer = () => {
 	return (
-		<Box pb={4} as="footer">
+		<Box as="footer" mb={8}>
 			<Divider mb={8} />
 			<NowPlaying />
-			<SimpleGrid columns={[1, 3, 3]} w="full" spacing={4}>
+			<SimpleGrid columns={[1, 3, 3]} w="full" spacing={4} pb={16}>
 				<GridItem>
 					<VStack alignItems="left" spacing={4}>
 						<FooterLink href="/">Home</FooterLink>

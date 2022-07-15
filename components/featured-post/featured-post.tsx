@@ -1,11 +1,19 @@
 import { Flex, Icon, Text, useColorModeValue, Link } from '@chakra-ui/react';
 import { MdOutlineRemoveRedEye } from 'react-icons/md';
 import NextLink from 'next/link';
+
 type FeaturedPostProps = {
 	title: string;
 	gradient: string;
 	slug: string;
 };
+
+const interactionEffect = {
+	transition: 'transform 0.2s ease-in-out',
+	transform: 'translateY(-8px)',
+};
+
+//TODO: fix focus ring around featured post
 
 export const FeaturedPost: React.FC<FeaturedPostProps> = ({
 	title,
@@ -16,8 +24,13 @@ export const FeaturedPost: React.FC<FeaturedPostProps> = ({
 	const bg = useColorModeValue('white', 'gray.800');
 	return (
 		<NextLink passHref href={`/blog/${slug}`}>
-			<Link>
+			<Link
+				_hover={{ textDecoration: 'none' }}
+				sx={{ ':focus > div': interactionEffect }}
+				_focus={{ boxShadow: 'none' }}
+			>
 				<Flex
+					_hover={interactionEffect}
 					p={1}
 					bg={gradient}
 					borderRadius={10}
