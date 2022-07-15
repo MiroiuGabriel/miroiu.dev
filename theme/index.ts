@@ -1,10 +1,4 @@
 import { extendTheme } from '@chakra-ui/react';
-const theme = extendTheme({
-	colors: {
-		brand: {
-			50: props => mode('gray.500'),
-		},
-	},
-});
+const theme = extendTheme({});
 
 export default theme;
