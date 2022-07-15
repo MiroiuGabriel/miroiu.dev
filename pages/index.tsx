@@ -12,6 +12,7 @@ import {
 	SimpleGrid,
 	GridItem,
 	Heading,
+	Tooltip,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -112,7 +113,11 @@ const Home: NextPage = () => {
 				<Wrap mt={6} mb={12} spacing={4}>
 					{skills.map(skill => (
 						<WrapItem key={skill.id}>
-							<Icon as={skill.icon} boxSize="14" />
+							<Tooltip label={skill.text}>
+								<span>
+									<Icon as={skill.icon} boxSize="14" />
+								</span>
+							</Tooltip>
 						</WrapItem>
 					))}
 				</Wrap>
