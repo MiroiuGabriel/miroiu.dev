@@ -10,7 +10,7 @@ const Document = () => {
 				<Main />
 				<NextScript />
 				<ColorModeScript
-					initialColorMode={theme.config.initialColorMode}
+					initialColorMode={theme.config.useSystemColorMode}
 				/>
 			</body>
 		</Html>
