@@ -13,6 +13,7 @@ import {
 	GridItem,
 	Heading,
 	Tooltip,
+	useColorMode,
 } from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -44,20 +45,21 @@ export const ChakraNextImage = ({
 	);
 };
 
-type ProjectType = { id: number; image: string; slug: string };
-
 const onHover = {
 	filter: 'brightness(0.7)',
 	transition: 'filter 200ms ease-in-out',
 };
 
-const Project: React.FC<{ project: ProjectType }> = ({ project }) => {
+const Project: React.FC<{ image: string; slug: string }> = ({
+	image,
+	slug,
+}) => {
 	return (
-		<NextLink href={`/project/${project.slug}`} passHref>
+		<NextLink href={`/project/${slug}`} passHref>
 			<Link borderRadius={8} _focus={onHover}>
 				<ChakraNextImage
-					src={project.image}
-					alt={project.slug}
+					src={image}
+					alt={slug}
 					w={320}
 					h={200}
 					_hover={onHover}
@@ -70,6 +72,8 @@ const Project: React.FC<{ project: ProjectType }> = ({ project }) => {
 //TODO: ADD color variable for theme change
 
 const Home: NextPage = () => {
+	const { colorMode } = useColorMode();
+	console.log(colorMode);
 	return (
 		<>
 			<Head>
@@ -143,7 +147,11 @@ const Home: NextPage = () => {
 					spacing={2}
 				>
 					{projects.map(project => (
-						<Project project={project} key={project.id} />
+						<Project
+							image={project.image}
+							slug={project.slug}
+							key={project.id}
+						/>
 					))}
 				</HStack>
 				<Heading as={'h3'} fontSize={['2xl', '4xl']} fontWeight="bold">
