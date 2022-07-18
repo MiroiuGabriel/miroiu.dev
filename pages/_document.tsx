@@ -7,11 +7,11 @@ const Document = () => {
 		<Html lang="en">
 			<Head />
 			<body>
-				<Main />
-				<NextScript />
 				<ColorModeScript
 					initialColorMode={theme.config.initialColorMode}
 				/>
+				<Main />
+				<NextScript />
 			</body>
 		</Html>
 	);
