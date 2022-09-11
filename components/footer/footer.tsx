@@ -1,4 +1,3 @@
-import React from 'react';
 import { NowPlaying } from '../now-playing';
 import { FooterLink } from './FooterLink';
 
