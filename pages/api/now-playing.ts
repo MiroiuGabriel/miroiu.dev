@@ -15,7 +15,10 @@ const handler = async (
 
 	const track = await response.json();
 
-	if (track.item === null) res.status(200).json({ isPlaying: false });
+	if (track.item === null) {
+		res.status(200).json({ isPlaying: false });
+		return;
+	}
 
 	const isPlaying = track.is_playing;
 	const title = track.item.name;

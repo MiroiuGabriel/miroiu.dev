@@ -1,73 +1,16 @@
-import {
-	Avatar,
-	Box,
-	Flex,
-	HStack,
-	Icon,
-	Text,
-	Wrap,
-	Link,
-	WrapItem,
-	BoxProps,
-	SimpleGrid,
-	GridItem,
-	Heading,
-	Tooltip,
-} from '@chakra-ui/react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import { Layout } from '../components/layout';
-import NextLink from 'next/link';
-import NextImage from 'next/image';
-import { skills } from '../fixatures/skills';
-import projects from '../fixatures/projects.json';
+import Link from 'next/link';
+import Image from 'next/image';
+import { skills } from '../fixtures/skills';
+import projects from '../fixtures/projects.json';
 import { FeaturedPost } from '../components/featured-post';
-import { BsArrowRight } from 'react-icons/bs';
-
-export const ChakraNextImage = ({
-	src,
-	alt,
-	...rest
-}: { src: string; alt: string } & Omit<BoxProps, 'as'>) => {
-	return (
-		<Box position="relative" {...rest}>
-			<NextImage
-				objectFit="cover"
-				layout="fill"
-				src={src}
-				alt={alt}
-				style={{ borderRadius: 8 }}
-				priority={true}
-			/>
-		</Box>
-	);
-};
-
-type ProjectType = { id: number; image: string; slug: string };
-
-const onHover = {
-	filter: 'brightness(0.7)',
-	transition: 'filter 200ms ease-in-out',
-};
-
-const Project: React.FC<{ project: ProjectType }> = ({ project }) => {
-	return (
-		<NextLink href={`/project/${project.slug}`} passHref>
-			<Link borderRadius={8} _focus={onHover}>
-				<ChakraNextImage
-					src={project.image}
-					alt={project.slug}
-					w={320}
-					h={200}
-					_hover={onHover}
-				/>
-			</Link>
-		</NextLink>
-	);
-};
-
-//TODO: ADD color variable for theme change
+import { BsArrowRight, BsGithub } from 'react-icons/bs';
+import { FiExternalLink } from 'react-icons/fi';
+import { Carousel } from '../components/carousel';
+import { Project } from '../components/project';
 
 const Home: NextPage = () => {
 	return (
@@ -76,113 +19,91 @@ const Home: NextPage = () => {
 				<title>Miroiu Gabriel - Freelance Frontend Developer</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-
 			<Layout>
-				<Flex direction={['column-reverse', 'row']}>
-					<Box flexDirection="column" pr={8}>
-						<Heading
-							as="h1"
-							fontSize={['3xl', '5xl']}
-							fontWeight="bold"
-						>
+				<div className="flex flex-col-reverse sm:flex-row">
+					<div className="flex flex-col pr-8">
+						<h1 className="text-3xl sm:text-5xl font-bold">
 							Miroiu Gabriel
-						</Heading>
-						<Text>Frontend Web Developer</Text>
-						<Text mt={4} mb={12} opacity={0.8}>
-							Helping developers build a faster web. Teaching
-							about web development, serverless, and React /
-							Next.js.
-						</Text>
-					</Box>
-					<Avatar
-						mt={5}
-						mb={[6]}
-						name="Miroiu Gabriel"
-						size={['xl', '2xl']}
-						src="https://media-exp1.licdn.com/dms/image/C4D03AQGc4NkBLrvmIw/profile-displayphoto-shrink_400_400/0/1651060313207?e=1663200000&v=beta&t=9mXJ6tskXpbMn7UrM1IEZypPp07kP8RoCIPaaikHRac"
-					/>
-				</Flex>
+						</h1>
+						<p className="mt-1">Fullstack Developer</p>
+						<p className="mt-4 text-ui dark:text-ui-dark">
+							Lorem ipsum dolor sit amet, consectetur adipiscing
+							elit. Integer vitae ex et sapien ornare vestibulum.
+							Sed feugiat diam id sem pharetra vulputate sed vitae
+							elit.
+						</p>
+					</div>
+					<div className="relative w-24 h-24 sm:w-32 sm:h-32 aspect-square mb-8 sm:ml-auto rounded-full">
+						<Image
+							className="rounded-full"
+							alt="profile picture"
+							src="/image/profile.webp"
+							layout="fill"
+							objectFit="cover"
+							priority
+						/>
+					</div>
+				</div>
 
-				<Heading as={'h3'} fontSize={['2xl', '4xl']} fontWeight="bold">
-					Skills
-				</Heading>
-				<Text opacity={0.8} mt={1}>
-					Some skills I learned from years of programming, in order of
-					preference.
-				</Text>
-				<Wrap mt={6} mb={12} spacing={4}>
-					{skills.map(skill => (
-						<WrapItem key={skill.id}>
-							<Tooltip label={skill.text}>
-								<span>
-									<Icon as={skill.icon} boxSize="14" />
-								</span>
-							</Tooltip>
-						</WrapItem>
+				<h3 className="text-2xl sm:text-4xl font-bold mt-12">Skills</h3>
+				<p className="mt-1 text-ui dark:text-ui-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Integer vitae ex et sapien ornare vestibulum. Sed feugiat
+					diam id sem pharetra vulputate sed vitae elit.
+				</p>
+				<div className="flex flex-wrap mt-6 gap-4">
+					{skills.map((skill, i) => (
+						<skill.icon size={56} key={i} title={skill.text} />
 					))}
-				</Wrap>
-				<Heading as={'h3'} fontSize={['2xl', '4xl']} fontWeight="bold">
+				</div>
+				<h3 className="text-2xl sm:text-4xl font-bold mt-12">
 					Projects
-				</Heading>
-				<Text opacity={0.8} mt={1}>
-					Projects i had fun working on.
-				</Text>
-				<HStack
-					mt={6}
-					mb={12}
-					py={2}
-					px={1}
-					overflowX="hidden"
-					sx={{
-						'&::-webkit-scrollbar': {
-							display: 'none',
-						},
-					}}
-					overflow="scroll"
-					borderRadius={8}
-					spacing={2}
-				>
-					{projects.map(project => (
-						<Project project={project} key={project.id} />
+				</h3>
+				<p className="mt-1 text-ui dark:text-ui-dark">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					Integer vitae ex et sapien ornare vestibulum. Sed feugiat
+					diam id sem pharetra vulputate sed vitae elit.
+				</p>
+				<Carousel numberOfitems={projects.length}>
+					{projects.map((project, i) => (
+						<Project
+							key={i}
+							image={project.image}
+							slug={project.slug}
+							url={project.url}
+							github={project.github}
+						/>
 					))}
-				</HStack>
-				<Heading as={'h3'} fontSize={['2xl', '4xl']} fontWeight="bold">
+				</Carousel>
+				<h3 className="text-2xl sm:text-4xl font-bold mt-12">
 					Featured Posts
-				</Heading>
-				<SimpleGrid columns={[1, 1, 3]} spacing={6} mt={6}>
-					<GridItem>
-						<FeaturedPost
-							gradient="linear-gradient(135deg, #f02fc2 0%,#6094ea 100%)"
-							title="Everything I Know About Style Guides, Design Systems, and
-					Component Libraries"
-							slug=""
-						></FeaturedPost>
-					</GridItem>
-					<GridItem>
-						<FeaturedPost
-							gradient="linear-gradient(135deg, #c3ec52 0%,#0ba29d 100%)"
-							title="Rust Is The Future of JavaScript Infrastructure"
-							slug=""
-						></FeaturedPost>
-					</GridItem>
-					<GridItem>
-						<FeaturedPost
-							gradient="linear-gradient(135deg, #0FF0B3 0%,#036ED9 100%)"
-							title="Past, Present, and Future of React State Management"
-							slug=""
-						></FeaturedPost>
-					</GridItem>
-				</SimpleGrid>
-				<Flex mt={8} mb={12}>
-					<NextLink passHref href="/blog">
-						<Link alignItems="center" borderRadius={4}>
-							<Flex opacity={0.8}>
-								All posts{' '}
-								<Icon as={BsArrowRight} boxSize={6} ml={2} />
-							</Flex>
-						</Link>
-					</NextLink>
-				</Flex>
+				</h3>
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+					<FeaturedPost
+						gradient="bg-gradient-to-bl from-pink-500 to-blue-400"
+						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+						slug=""
+					></FeaturedPost>
+					<FeaturedPost
+						gradient="bg-gradient-to-bl from-yellow-300 to-green-500"
+						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+						slug=""
+					></FeaturedPost>
+					<FeaturedPost
+						gradient="bg-gradient-to-bl from-purple-700 to-blue-500"
+						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+						slug=""
+					></FeaturedPost>
+				</div>
+				<Link href="/blog">
+					<a className="flex items-center mt-8 mb-12 group hover text-ui dark:text-ui-dark dark:hover:text-ui-dark-hover hover:text-ui-hover transition-colors duration-300 ease-in-out">
+						All posts
+						<BsArrowRight
+							size={24}
+							className="ml-2 group-hover:ml-4 group-focus:ml-4 transition-margin duration-300 ease-in-out"
+						/>
+					</a>
+				</Link>
 			</Layout>
 		</>
 	);

@@ -1,85 +1,43 @@
-import {
-	Box,
-	Divider,
-	GridItem,
-	SimpleGrid,
-	VStack,
-	Link,
-} from '@chakra-ui/react';
-import NextLink from 'next/link';
 import React from 'react';
 import { NowPlaying } from '../now-playing';
+import { FooterLink } from './FooterLink';
 
-type FooterLinkProps = { children: string; href: string };
-
-const FooterLinkExternal: React.FC<FooterLinkProps> = ({ href, children }) => {
-	return (
-		<Link
-			textDecoration="none !important"
-			borderRadius={4}
-			opacity={0.8}
-			_hover={{
-				opacity: 0.6,
-			}}
-			href={href}
-		>
-			{children}
-		</Link>
-	);
-};
-
-const FooterLink: React.FC<FooterLinkProps> = ({ href, children }) => {
-	return (
-		<NextLink href={href} passHref>
-			<Link
-				textDecoration="none !important"
-				borderRadius={4}
-				opacity={0.8}
-				_hover={{
-					opacity: 0.6,
-				}}
-			>
-				{children}
-			</Link>
-		</NextLink>
-	);
+const config = {
+	linkedIn: 'https://www.linkedin.com/in/miroiu-gabriel/',
+	resume: '/resume.pdf',
+	spotify: 'https://open.spotify.com/user/215fyxejfuikxtr2wrg66szpa',
+	github: 'https://github.com/MiroiuGabriel',
 };
 
 export const Footer = () => {
 	return (
-		<Box as="footer" mb={8}>
-			<Divider mb={8} />
+		<footer className="mb-8">
+			<div className="w-full h-px bg-contrast mb-8" />
 			<NowPlaying />
-			<SimpleGrid columns={[1, 3, 3]} w="full" spacing={4} pb={16}>
-				<GridItem>
-					<VStack alignItems="left" spacing={4}>
-						<FooterLink href="/">Home</FooterLink>
-						<FooterLink href="/about">About</FooterLink>
-						<FooterLinkExternal href="/resume.pdf">
-							Resume
-						</FooterLinkExternal>
-					</VStack>
-				</GridItem>
-				<GridItem>
-					<VStack alignItems="left" spacing={4}>
-						<FooterLinkExternal href="https://www.linkedin.com/in/miroiu-gabriel/">
-							Linkedin
-						</FooterLinkExternal>
-						<FooterLinkExternal href="https://github.com/MiroiuGabriel">
-							Github
-						</FooterLinkExternal>
-						<FooterLink href="https://open.spotify.com/user/215fyxejfuikxtr2wrg66szpa">
-							Spotify
-						</FooterLink>
-					</VStack>
-				</GridItem>
-				<GridItem>
-					<VStack alignItems="left" spacing={4}>
-						<FooterLink href="/snippets">Snippets</FooterLink>
-						<FooterLink href="/blog">Blog</FooterLink>
-					</VStack>
-				</GridItem>
-			</SimpleGrid>
-		</Box>
+			<div className="w-full grid gap-4 grid-cols-1 sm:grid-cols-3 mb-16">
+				<div className="flex flex-col items-start space-y-4">
+					<FooterLink href="/">Home</FooterLink>
+					<FooterLink href="/snippets">Snippets</FooterLink>
+				</div>
+
+				<div className="flex flex-col items-start space-y-4">
+					<FooterLink href={config.linkedIn} isExternal>
+						LinkedIn
+					</FooterLink>
+					<FooterLink href={config.resume} isExternal>
+						Resume
+					</FooterLink>
+				</div>
+
+				<div className="flex flex-col items-start space-y-4">
+					<FooterLink href={config.spotify} isExternal>
+						Spotify
+					</FooterLink>
+					<FooterLink href={config.github} isExternal>
+						Github
+					</FooterLink>
+				</div>
+			</div>
+		</footer>
 	);
 };

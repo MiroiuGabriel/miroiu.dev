@@ -1,1 +1,1 @@
-export { FeaturedPost } from './featured-post';
+export { FeaturedPost } from './FeaturedPost';

@@ -1,19 +1,18 @@
-import { Box, Container } from '@chakra-ui/react';
 import { Footer } from '../footer';
 import { Navbar } from '../navbar';
+import { useState, type FC } from 'react';
+import { useTheme } from 'next-themes';
 
-export const Layout: React.FC<{ children: React.ReactNode }> = ({
-	children,
-}) => {
+export const Layout: FC<{ children: React.ReactNode }> = ({ children }) => {
 	return (
-		<Box px={8} w="full">
-			<Container maxW={672} m="auto" p={0}>
+		<div className="px-8 w-full">
+			<div className="max-w-2xl mx-auto">
 				<Navbar />
-				<Box as="main" id="skip" scrollMarginTop="18px">
+				<main id="skip" className="scroll-m-5">
 					{children}
-				</Box>
+				</main>
 				<Footer />
-			</Container>
-		</Box>
+			</div>
+		</div>
 	);
 };

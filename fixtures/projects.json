@@ -1,0 +1,50 @@
+[
+	{
+		"image": "/image/codewars.webp",
+		"slug": "codewars",
+		"url": "https://codewars-clone.vercel.app",
+		"github": "https://github.com/MiroiuGabriel/codewars"
+	},
+	{
+		"image": "/image/netflix.webp",
+		"slug": "netflix",
+		"url": "https://netflix-clona.vercel.app",
+		"github": "https://github.com/MiroiuGabriel/netflix"
+	},
+	{
+		"image": "/image/algolizer.webp",
+		"slug": "algolizer",
+		"url": "https://algolizer.netlify.app/",
+		"github": "https://github.com/MiroiuGabriel/algolizer"
+	},
+	{
+		"image": "/image/taxiecuador.webp",
+		"slug": "taxi-ecuador",
+		"url": "https://taxi-ecuador.com",
+		"github": "https://github.com/MiroiuGabriel/taxi-ecuador"
+	},
+	{
+		"image": "/image/twitter.webp",
+		"slug": "twitter",
+		"url": "https://twitterly.vercel.app",
+		"github": "https://github.com/MiroiuGabriel/twitter"
+	},
+	{
+		"image": "/image/google.webp",
+		"slug": "google",
+		"url": "https://google-clone-tw.vercel.app/",
+		"github": "https://github.com/MiroiuGabriel/google"
+	},
+	{
+		"image": "/image/higherlower.webp",
+		"slug": "higher-lower",
+		"url": "https://higherlower.netlify.app/",
+		"github": "https://github.com/MiroiuGabriel/higher-lower"
+	},
+	{
+		"image": "/image/airbnb.webp",
+		"slug": "airbnb",
+		"url": "https://airbnb-clone-tw.vercel.app/",
+		"github": "https://github.com/MiroiuGabriel/airbnb"
+	}
+]
