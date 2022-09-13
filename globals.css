@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.code-highlight {
+	@apply prose-pre:scrollbar-hide prose-pre:border prose-pre:border-gray-100 dark:prose-pre:border-contrast  prose-pre:bg-white dark:prose-pre:bg-background prose-code:!bg-white dark:prose-code:!bg-background prose-pre:p-4;
+}
+
+.code-highlight > p > code {
+	@apply before:content-none after:content-none border border-gray-100 dark:border-contrast py-1 px-2 font-mono rounded-md;
+}
+
+.hljs {
+	@apply text-black dark:text-[#e7f0ef];
+}
+
+.hljs-keyword,
+.hljs-string,
+.hljs-name,
+.hljs-literal {
+	@apply text-[#5fb3a1] dark:text-[#5DE4c7];
+}
+.hljs-property {
+	@apply text-[#757779] dark:text-[#e4f0fb];
+}
+
+.hljs-built_in {
+	@apply text-[#85899b];
+}
+
+.hljs-title.function_,
+.hljs-title.class_,
+.hljs-attr {
+	@apply text-[#1e7291] dark:text-[#ADD7FF];
+}
+
+.hljs-comment {
+	@apply text-[#767c9d];
+}

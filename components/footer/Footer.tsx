@@ -1,16 +1,10 @@
 import { NowPlaying } from '../now-playing';
 import { FooterLink } from './FooterLink';
-
-const config = {
-	linkedIn: 'https://www.linkedin.com/in/miroiu-gabriel/',
-	resume: '/resume.pdf',
-	spotify: 'https://open.spotify.com/user/215fyxejfuikxtr2wrg66szpa',
-	github: 'https://github.com/MiroiuGabriel',
-};
+import config from '../../fixtures/footer.json';
 
 export const Footer = () => {
 	return (
-		<footer className="mb-8">
+		<footer className="mb-8 mt-12">
 			<div className="w-full h-px bg-contrast mb-8" />
 			<NowPlaying />
 			<div className="w-full grid gap-4 grid-cols-1 sm:grid-cols-3 mb-16">

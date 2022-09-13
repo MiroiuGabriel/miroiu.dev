@@ -6,9 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { skills } from '../fixtures/skills';
 import projects from '../fixtures/projects.json';
-import { FeaturedPost } from '../components/featured-post';
-import { BsArrowRight, BsGithub } from 'react-icons/bs';
-import { FiExternalLink } from 'react-icons/fi';
+import { FeaturedSnippet } from '../components/featured-snippet';
+import { BsArrowRight, BsGithub, BsSpotify } from 'react-icons/bs';
 import { Carousel } from '../components/carousel';
 import { Project } from '../components/project';
 
@@ -76,28 +75,28 @@ const Home: NextPage = () => {
 					))}
 				</Carousel>
 				<h3 className="text-2xl sm:text-4xl font-bold mt-12">
-					Featured Posts
+					Featured Snippets
 				</h3>
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-					<FeaturedPost
+					<FeaturedSnippet
 						gradient="bg-gradient-to-bl from-pink-500 to-blue-400"
 						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 						slug=""
-					></FeaturedPost>
-					<FeaturedPost
+					></FeaturedSnippet>
+					<FeaturedSnippet
 						gradient="bg-gradient-to-bl from-yellow-300 to-green-500"
 						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 						slug=""
-					></FeaturedPost>
-					<FeaturedPost
+					></FeaturedSnippet>
+					<FeaturedSnippet
 						gradient="bg-gradient-to-bl from-purple-700 to-blue-500"
 						title="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 						slug=""
-					></FeaturedPost>
+					></FeaturedSnippet>
 				</div>
-				<Link href="/blog">
-					<a className="flex items-center mt-8 mb-12 group hover text-ui dark:text-ui-dark dark:hover:text-ui-dark-hover hover:text-ui-hover transition-colors duration-300 ease-in-out">
-						All posts
+				<Link href="/snippets">
+					<a className="flex items-center mt-8 group hover text-ui dark:text-ui-dark dark:hover:text-ui-dark-hover hover:text-ui-hover transition-colors duration-300 ease-in-out">
+						All snippets
 						<BsArrowRight
 							size={24}
 							className="ml-2 group-hover:ml-4 group-focus:ml-4 transition-margin duration-300 ease-in-out"

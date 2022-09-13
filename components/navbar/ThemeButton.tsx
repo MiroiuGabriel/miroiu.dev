@@ -19,7 +19,7 @@ export const ThemeButton = () => {
 		<button
 			onClick={toggleTheme}
 			aria-label="switch theme"
-			className="bg-gray-100 dark:bg-contrast p-2 rounded-lg flex justify-center items-center outline-2 hover:outline"
+			className="bg-gray-100 dark:bg-contrast p-2 rounded-lg flex justify-center items-center hover:ring-2 transition-shadow duration-200 ease-in-out ring-black dark:ring-white"
 		>
 			{mounted ? (
 				themeIcon

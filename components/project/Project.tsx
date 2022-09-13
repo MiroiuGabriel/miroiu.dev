@@ -20,7 +20,7 @@ export const Project: React.FC<ProjectType> = ({
 				className="rounded-md -z-10"
 				priority
 			/>
-			<div className="inset-0 w-full h-full group-hover:bg-overlay flex justify-center items-center text-center transition-background duration-300 ease-in-out gap-4">
+			<div className="inset-0 w-full h-full group-hover:bg-overlay flex justify-center items-center text-center transition-background duration-300 ease-in-out gap-4 text-white">
 				<a
 					href={github}
 					className="invisible group-hover:visible z-10"
