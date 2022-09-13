@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Layout } from '../../components/layout';
+import { Layout, Copy } from '../../components';
 import { getPostFromSlug, getSlugs, type SnippetMeta } from '../../lib/mdxApi';
 import { serialize } from 'next-mdx-remote/serialize';
 import { type MDXRemoteSerializeResult, MDXRemote } from 'next-mdx-remote';
@@ -33,7 +33,12 @@ const CodeSnippet: NextPage<CodeSnippetProps> = ({ post }) => {
 				</div>
 
 				<div className="prose prose-code dark:prose-invert min-w-full code-highlight">
-					<MDXRemote {...post.source}></MDXRemote>
+					<MDXRemote
+						{...post.source}
+						components={{
+							Copy,
+						}}
+					></MDXRemote>
 				</div>
 			</article>
 		</Layout>

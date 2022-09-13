@@ -1,7 +1,6 @@
 import { NextPage, type GetStaticProps } from 'next';
 import Link from 'next/link';
-import { FaSpotify } from 'react-icons/fa';
-import { Layout } from '../../components/layout';
+import { Layout } from '../../components';
 import { iconMap } from '../../fixtures/snippets';
 import { getAllPosts, type SnippetMeta } from '../../lib/mdxApi';
 
@@ -18,17 +17,17 @@ const Snippets: NextPage<SnippetsProps> = ({ posts }) => {
 				vitae ex et sapien ornare vestibulum. Sed feugiat diam id sem
 				pharetra vulputate sed vitae elit.
 			</p>
-			<div className="grid grid-cols-2 gap-4 mt-12">
+			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
 				{posts.map(post => (
 					<Link href={`/snippets/${post.slug}`} key={post.slug}>
 						<a className="p-3 border border-gray-100 dark:border-contrast rounded-md flex flex-col gap-2">
 							<div className="p-1.5 rounded-full bg-gray-100 dark:bg-contrast w-fit">
-								{iconMap[post.icon]()}
+								{iconMap[post.icon ?? 'react']()}
 							</div>
-							<h4 className="font-medium text-lg grow">
+							<h4 className="font-medium text-lg">
 								{post.title}
 							</h4>
-							<p className="mb-1 text-ui dark:text-ui-dark">
+							<p className="mb-1 text-ui dark:text-ui-dark grow">
 								{post.summary}
 							</p>
 						</a>

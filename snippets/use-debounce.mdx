@@ -1,0 +1,47 @@
+---
+slug: use-debounce
+title: React
+summary: Detect if mouse is hovering over element
+icon: react
+---
+
+<Copy code={`import { useEffect, useState } from 'react';
+
+function useDebounce<T>(value: T, delay?: number): T {
+const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+    useEffect(() => {
+    	const timer = setTimeout(() => setDebouncedValue(value), delay || 500);
+
+    	return () => {
+    		clearTimeout(timer);
+    	};
+    }, [value, delay]);
+
+    return debouncedValue;
+
+}
+
+export default useDebounce;`}>
+
+```jsx
+import { useEffect, useState } from 'react';
+
+function useDebounce<T>(value: T, delay?: number): T {
+	const [debouncedValue, setDebouncedValue] = useState < T > value;
+
+	useEffect(() => {
+		const timer = setTimeout(() => setDebouncedValue(value), delay || 500);
+
+		return () => {
+			clearTimeout(timer);
+		};
+	}, [value, delay]);
+
+	return debouncedValue;
+}
+
+export default useDebounce;
+```
+
+</Copy>
