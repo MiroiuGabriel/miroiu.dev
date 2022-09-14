@@ -11,7 +11,13 @@ const FourOhFour = () => {
 	useEffect(() => setMounted(true), []);
 
 	return (
-		<Layout>
+		<Layout
+			meta={{
+				title: 'Page not found',
+				description: 'Page not found',
+				type: 'page, found',
+			}}
+		>
 			<section className="flex flex-col-reverse lg:flex-row mb-12">
 				<div className="flex flex-col mr-0 mt-4 lg:mr-4 lg:mt-0">
 					<h1 className="text-2xl md:text-4xl font-bold mb-2">
