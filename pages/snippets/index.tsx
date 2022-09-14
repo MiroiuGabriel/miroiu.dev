@@ -10,12 +10,18 @@ type SnippetsProps = {
 
 const Snippets: NextPage<SnippetsProps> = ({ posts }) => {
 	return (
-		<Layout>
+		<Layout
+			meta={{
+				title: 'Code Snippets - Miroiu Gabriel',
+				description:
+					'A collection of code snippets that I use. React hooks, HTML snippets, and more. Most of them are in TypeScript.',
+				type: 'Code snippets, react, html, typescript, javascript',
+			}}
+		>
 			<h1 className="text-3xl sm:text-5xl font-bold">Code Snippets</h1>
 			<p className="mt-4 text-ui dark:text-ui-dark">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-				vitae ex et sapien ornare vestibulum. Sed feugiat diam id sem
-				pharetra vulputate sed vitae elit.
+				A collection of code snippets that I use. React hooks, HTML
+				snippets, and more. Most of them are in TypeScript.
 			</p>
 			<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
 				{posts.map(post => (

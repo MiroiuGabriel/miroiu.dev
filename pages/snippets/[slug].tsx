@@ -16,7 +16,13 @@ type CodeSnippetProps = {
 
 const CodeSnippet: NextPage<CodeSnippetProps> = ({ post }) => {
 	return (
-		<Layout>
+		<Layout
+			meta={{
+				title: `${post.meta.title} - Code Snippet`,
+				description: post.meta.summary,
+				type: 'snippet, code, gist',
+			}}
+		>
 			<article>
 				<div className="flex justify-between mb-12">
 					<div className="flex flex-col gap-4">
