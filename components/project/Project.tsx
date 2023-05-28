@@ -11,7 +11,7 @@ export const Project: React.FC<ProjectType> = ({
 	github,
 }) => {
 	return (
-		<div className="relative h-52 w-96 flex-none group">
+		<div className="relative h-52 w-96 flex-none group snap-center">
 			<Image
 				src={image}
 				alt={slug}

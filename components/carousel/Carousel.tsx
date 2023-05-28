@@ -62,7 +62,7 @@ export const Carousel: FC<CarouselProps> = ({ children, numberOfitems }) => {
 				</button>
 			</div>
 			<div
-				className="flex overflow-x-hidden space-x-2 rounded-md"
+				className="flex space-x-2 rounded-md snap-x snap-mandatory overflow-x-scroll scrollbar-hide"
 				ref={listRef}
 			>
 				{children}
